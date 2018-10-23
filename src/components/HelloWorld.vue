@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+   <div class="hello"> <!-- template裡面最外層必須是只有一個容器 -->
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -84,7 +84,7 @@
 </template>
 
 <script>
-export default {
+export default { // 導出這個組件，使外部可以引用。
   name: 'HelloWorld',
   data () {
     return {
