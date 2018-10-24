@@ -3,6 +3,8 @@
 import Vue from 'vue' //引入vue模塊
 import App from './App' //引入vue組件
 import router from './router' //引入路由配置文件
+import Mock from './mock'; // 引入mock模塊
+Mock.start(); //並且執行初始化函數
 
 Vue.config.productionTip = false // 關閉生產模式下給出的提示
 
