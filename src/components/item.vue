@@ -11,9 +11,19 @@
   </div>
 </template>
 <script>
+// item 是todo的子組件,他接受一個對象item,來進行處理
 export default {
-  props: ['item']  //子組件顯式的用 props 選項聲明它期待獲得的數據，
-  // 這裡申明 它想要一個叫做 ’item‘的數據。
+  props: {
+    item: {
+      type: Object,
+      default: () => {
+        return {
+          checked: false,
+          text: '你好,世界'
+        }
+      }
+    }
+  }
 };
 </script>
 <style lang="less">

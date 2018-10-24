@@ -30,6 +30,12 @@
         this.todoId = TODOS[0].id; // 把菜單數據的默認的第一個對象的id賦值給默認選中的id
       });
     },
+     watch: {
+      'todoId'(id) {
+        this.$router.push({ name: 'todo', params: { id: id } });
+        //監聽到用戶的點擊todoId的變化在跳轉路由
+      }
+    },
     methods: {
       goList(id) { // 點擊菜單時候,替換選中id
         this.todoId = id;
