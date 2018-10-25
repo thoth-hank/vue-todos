@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import * as actions from './actions';
 import * as getters from './getters';
+
 Vue.use(Vuex); //安裝 Vuex 插件
+
 // 創建初始應用全局狀態變量
 const state = {
   todoList: [], //指我們的待辦事項列表數據

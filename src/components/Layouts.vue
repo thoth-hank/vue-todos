@@ -4,6 +4,7 @@
       <menus></menus>
     </section>
     <div class="content-overlay" @click="$store.dispatch('updateMenu')"></div>
+    <!-- 這個是當頁面收縮覆蓋在內容上面的模糊層，點擊後復原 他可以直接調用vuex actions.js裡面的updateMenu方法-->
     <section class="content-container"><!--右邊的容器-->
       <!-- <todo></todo> -->
       <router-view></router-view>

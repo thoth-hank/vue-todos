@@ -20,7 +20,8 @@
     data() {
       return {
         items: [], // 菜單數據
-        todoId: '' // 默認選中id
+        todoId: '', // 默認選中id
+        todoNum: 0 // 新增一个状态来判断代办事项的数据
       };
     },
     created() { // 調用請求菜單列表數據的接口
@@ -68,6 +69,7 @@
         });
       }
     },
+    // 以下有註解掉
     computed: {
       todoList() {
         return this.$store.getters.getTodoList; // 返回vuex getters.js 定義的getTodoList數據

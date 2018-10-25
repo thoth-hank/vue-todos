@@ -61,9 +61,9 @@ export default {
         return id && todo.id === id;
       });
       // todo.count (等待完成數目)等於 todo.record（代辦事項列表下面未被選擇的數據
-      todo.count = todo.record.filter((data) => {
+      todo ? todo.count = todo ? todo.record.filter((data) => {
         return data.checked === false;
-      }).length;
+      }).length : null : false;
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve([200, {
@@ -87,6 +87,45 @@ export default {
             isDelete: false,
             checked: false
           });
+          return true;
+        }
+      });
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([200]);
+        }, 200);
+      });
+    });
+
+    // 修改标题
+    mock.onPost('/todo/editTodo').reply(config => {
+      let {
+        todo
+      } = JSON.parse(config.data);
+      Todos.some((t, index) => {
+        if (t.id === todo.id) {
+          t.title = todo.title;
+          t.locked = todo.locked;
+          t.isDelete = todo.isDelete;
+          return true;
+        }
+      });
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([200]);
+        }, 200);
+      });
+    });
+    // 修改标题
+    mock.onPost('/todo/editRecord').reply(config => {
+      let {
+        id,
+        record,
+        index
+      } = JSON.parse(config.data);
+      Todos.some((t) => {
+        if (t.id === id) {
+          t.record[index] = record;
           return true;
         }
       });
