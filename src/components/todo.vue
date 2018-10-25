@@ -3,7 +3,7 @@
     <!-- 頭部模塊 -->
     <nav>
       <!-- 當用戶瀏覽車窗口尺寸小於40em時候，顯示手機端的菜單圖標 -->
-      <div class="nav-group">
+      <div class="nav-group" @click="$store.dispatch('updateMenu')" v-show="!isUpdate">
         <a class="nav-item">
           <span class="icon-list-unordered">
           </span>
